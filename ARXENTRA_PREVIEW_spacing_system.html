@@ -292,17 +292,17 @@ summary:focus-visible {
 .heroStackSvg text { font-family: var(--font-geist-sans), Arial, sans-serif; }
 .heroStackSvg .handText { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-size: 17px; font-weight: 600; font-style: italic; }
 
-/* Traveling light wave up and down the hero stack.
-   Speed is controlled in exactly one place: --cycle (seconds for one full
-   up+down sweep) set inline on .heroStackSvg. Only opacity animates, so the
+/* Traveling light wave up and down the hero stack. Each plate lights
+   with a flat, even accent tone - no gradient, no added depth, so the
+   artwork's own flat style is left intact. Speed is controlled in one
+   place: --cycle on .heroStackSvg. Only opacity animates, so the
    hand-drawn plate paths never move. */
 .plateGlow {
-  fill: url(#glowSheen);
+  fill: var(--accent);
   stroke: none;
   opacity: 0;
   pointer-events: none;
-  will-change: opacity, filter;
-  filter: drop-shadow(0 2px 3px rgba(17,18,15,0.30)) drop-shadow(0 0 22px rgba(63,185,131,0.85));
+  will-change: opacity;
   animation: layerLit calc(var(--cycle, 5) * 1s) ease-out infinite;
 }
 .plateGlow.up   { animation-delay: calc(var(--i) * var(--cycle, 5) * 0.06s); }
@@ -1904,7 +1904,7 @@ body { min-height: 100vh; }
 <pattern height="82" id="heroGrid" patternunits="userSpaceOnUse" width="82"><path d="M82 0H0V82" fill="none" stroke="#d8d4ca" stroke-opacity="0.38" stroke-width="1"></path><circle cx="0" cy="0" fill="#85867f" fill-opacity="0.46" r="1.5"></circle></pattern>
 <lineargradient id="plateFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fffefa" stop-opacity="0.99"></stop><stop offset="0.6" stop-color="#f8f7f1" stop-opacity="0.96"></stop><stop offset="1" stop-color="#e7ebe4" stop-opacity="0.94"></stop></lineargradient>
 <lineargradient id="productFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fffefa"></stop><stop offset="0.56" stop-color="#f9fbf7"></stop><stop offset="1" stop-color="#dcebdd"></stop></lineargradient>
-<lineargradient id="baseFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#22241f"></stop><stop offset="1" stop-color="#0c0d0b"></stop></lineargradient><lineargradient id="glowSheen" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1f6f4c"></stop><stop offset="0.55" stop-color="#3fb983"></stop><stop offset="1" stop-color="#8ce9bd"></stop></lineargradient>
+<lineargradient id="baseFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#22241f"></stop><stop offset="1" stop-color="#0c0d0b"></stop></lineargradient>
 <filter height="210%" id="plateShadow" width="170%" x="-30%" y="-40%"><fedropshadow dx="0" dy="11" flood-color="#11120f" flood-opacity="0.12" stddeviation="10"></fedropshadow><fedropshadow dx="0" dy="28" flood-color="#11120f" flood-opacity="0.07" stddeviation="18"></fedropshadow></filter>
 <filter height="220%" id="productShadow" width="180%" x="-35%" y="-50%"><fedropshadow dx="0" dy="14" flood-color="#11120f" flood-opacity="0.15" stddeviation="11"></fedropshadow><fedropshadow dx="0" dy="36" flood-color="#11120f" flood-opacity="0.08" stddeviation="22"></fedropshadow></filter>
 <filter height="220%" id="baseShadow" width="170%" x="-30%" y="-50%"><fedropshadow dx="0" dy="20" flood-color="#000" flood-opacity="0.28" stddeviation="16"></fedropshadow></filter>
