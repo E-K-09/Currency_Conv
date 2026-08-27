@@ -292,11 +292,11 @@ summary:focus-visible {
 .heroStackSvg text { font-family: var(--font-geist-sans), Arial, sans-serif; }
 .heroStackSvg .handText { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-size: 17px; font-weight: 600; font-style: italic; }
 
-/* Traveling light wave up and down the hero stack. Each plate lights
-   with a flat, even accent tone - no gradient, no added depth, so the
-   artwork's own flat style is left intact. Speed is controlled in one
-   place: --cycle on .heroStackSvg. Only opacity animates, so the
-   hand-drawn plate paths never move. */
+/* Traveling light wave up and down the hero stack. Each plate lights with a
+   flat, even accent tone - no gradient, no depth, the artwork's own flat
+   style stays intact. Speed is controlled in exactly one place: --cycle
+   (seconds for one full up+down sweep) set inline on .heroStackSvg. Only
+   opacity animates, so the hand-drawn plate paths never move. */
 .plateGlow {
   fill: var(--accent);
   stroke: none;
@@ -315,9 +315,6 @@ summary:focus-visible {
   100% { opacity: 0; }
 }
 
-/* This file already carries a global reduced-motion rule that forces
-   animation-duration with !important; setting animation-name to none here
-   stops the glow outright rather than running it at 0.01ms. */
 @media (prefers-reduced-motion: reduce) {
   .plateGlow { animation: none !important; opacity: 0 !important; }
 }
